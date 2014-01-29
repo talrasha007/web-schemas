@@ -26,7 +26,7 @@ _.extend(ObjectSchema.prototype, {
         var ret =
             _.reduce(this.schemas, function (m, schema, field) {
                 try {
-                    var v = schema.parse(obj[field]);
+                    var v = schema.parse(obj && obj[field]);
                     if (v !== undefined) m[field] = v;
                     return m;
                 } catch (e) {
