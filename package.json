@@ -19,5 +19,6 @@
         "mocha": "latest",
         "expect.js": "latest"
     },
+    "main": "./schemas/index.js",
     "readmeFilename": "README.md"
 }
