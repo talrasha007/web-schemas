@@ -1,4 +1,5 @@
-var DateSchema = require('./dateSchema.js').DateSchema,
+var _ = require('underscore'),
+    DateSchema = require('./dateSchema.js').DateSchema,
     IntSchema = require('./numberSchema.js').IntSchema,
     NumberSchema = require('./numberSchema.js').NumberSchema,
     StringSchema = require('./stringSchema.js').StringSchema,
@@ -14,3 +15,8 @@ exports.schemas = {
 
 exports.Schema = ObjectSchema;
 exports.Array = ArraySchema;
+
+exports.sanitize = function (request, schema) {
+    var reqData = _.extend({}, request.body, request.query);
+    return schema.parse(reqData);
+};
