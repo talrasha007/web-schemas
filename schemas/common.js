@@ -3,6 +3,8 @@ var _ = require('underscore'),
 
 var SchemaParseError = exports.SchemaParseError = function (msg, path) {
         Error.call(this, msg);
+        this.name = 'SchemaParseError';
+        this.message = msg;
         this.path = path || '';
     },
     SchemaBase = exports.SchemaBase = function () {
@@ -44,7 +46,7 @@ SchemaBase.prototype = {
     },
 
     _sealParser: function (fn) {
-        var me = new this.constructor(true),
+        var me = new this.constructor(this),
             oldParser = this.parse;
 
         me.parse = function (str) {

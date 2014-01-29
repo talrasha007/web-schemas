@@ -109,7 +109,7 @@ _.extend(StringSchema.prototype, {
     len: function (min, max) {
         return this._sealParser(function (v) {
             if (v === undefined) return ;
-            if (v.length >= (min || 0) && (max === undefined || v.length < max)) return v;
+            if (v.length >= (min || 0) && (max === undefined || v.length <= max)) return v;
             throw new cm.SchemaParseError('string length error.');
         });
     },

@@ -1,7 +1,9 @@
 var DateSchema = require('./dateSchema.js').DateSchema,
     IntSchema = require('./numberSchema.js').IntSchema,
     NumberSchema = require('./numberSchema.js').NumberSchema,
-    StringSchema = require('./stringSchema.js').StringSchema;
+    StringSchema = require('./stringSchema.js').StringSchema,
+    ObjectSchema = require('./objectSchema.js').ObjectSchema,
+    ArraySchema = require('./objectSchema.js').ArraySchema;
 
 exports.schemas = {
     int: new IntSchema(),
@@ -9,3 +11,6 @@ exports.schemas = {
     string: new StringSchema(),
     date: new DateSchema()
 };
+
+exports.Schema = ObjectSchema;
+exports.Array = ArraySchema;
