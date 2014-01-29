@@ -1,6 +1,6 @@
 #express-schema
 
-[![Build Status](https://secure.travis-ci.org/ctavan/express-validator.png)](http://travis-ci.org/ctavan/express-validator)
+[![Build Status](https://secure.travis-ci.org/ctavan/express-validator.png)](https://github.com/talrasha007/express-schema)
 
   A schema parser for express.js. The goal of this lib is to make express.js's request param parsing easier.
   
