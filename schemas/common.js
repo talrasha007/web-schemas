@@ -62,24 +62,28 @@ util.inherits(ComparableSchema, SchemaBase);
 _.extend(ComparableSchema.prototype, {
     gt: function (val) {
         return this._sealParser(function (v) {
+            if (v === undefined) return ;
             if (v > val) return v;
             throw new SchemaParseError('Value should be greater than ' + val + '.');
         });
     },
     lt: function (val) {
         return this._sealParser(function (v) {
+            if (v === undefined) return ;
             if (v < val) return v;
             throw new SchemaParseError('Value should be less than ' + val + '.');
         });
     },
     gte: function (val) {
         return this._sealParser(function (v) {
+            if (v === undefined) return ;
             if (v >= val) return v;
             throw new SchemaParseError('Value should be equal or greater than ' + val + '.');
         });
     },
     lte: function (val) {
         return this._sealParser(function (v) {
+            if (v === undefined) return ;
             if (v <= val) return v;
             throw new SchemaParseError('Value should be equal or less than ' + val + '.');
         });
