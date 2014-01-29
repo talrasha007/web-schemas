@@ -1,0 +1,23 @@
+{
+    "name": "express-schema",
+    "version": "0.0.1",
+    "author": "Tal Rasha <talrasha007@gmail.com>",
+    "keywords": [
+        "express",
+        "request",
+        "sanitizer",
+        "schema"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/talrasha007/express-schema.git"
+    },
+    "dependencies": {
+        "underscore": "latest"
+    },
+    "devDependencies": {
+        "mocha": "latest",
+        "expect.js": "latest"
+    },
+    "readmeFilename": "README.md"
+}
