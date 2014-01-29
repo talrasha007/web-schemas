@@ -37,6 +37,11 @@ _.extend(ObjectSchema.prototype, {
 
         if (_.isEmpty(ret)) return ;
         else return ret;
+    },
+
+    sanitize: function (request) {
+        var reqData = _.extend({}, request.body, request.query);
+        return this.parse(reqData);
     }
 });
 

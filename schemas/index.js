@@ -15,8 +15,3 @@ exports.schemas = {
 
 exports.Schema = ObjectSchema;
 exports.Array = ArraySchema;
-
-exports.sanitize = function (request, schema) {
-    var reqData = _.extend({}, request.body, request.query);
-    return schema.parse(reqData);
-};
