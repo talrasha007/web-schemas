@@ -1,4 +1,5 @@
 var _ = require('underscore'),
+    BoolSchema = require('./boolSchema.js').BoolSchema,
     DateSchema = require('./dateSchema.js').DateSchema,
     IntSchema = require('./numberSchema.js').IntSchema,
     NumberSchema = require('./numberSchema.js').NumberSchema,
@@ -9,6 +10,7 @@ var _ = require('underscore'),
 exports.schemas = {
     int: new IntSchema(),
     number: new NumberSchema(),
+    bool: new BoolSchema(),
     string: new StringSchema(),
     date: new DateSchema()
 };
