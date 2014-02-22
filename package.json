@@ -1,6 +1,6 @@
 {
     "name": "express-schema",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "author": "Tal Rasha <talrasha007@gmail.com>",
     "keywords": [
         "express",

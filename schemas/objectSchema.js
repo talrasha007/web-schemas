@@ -39,9 +39,17 @@ _.extend(ObjectSchema.prototype, {
         else return ret;
     },
 
-    sanitize: function (request) {
-        var reqData = _.extend({}, request.body, request.query);
-        return this.parse(reqData);
+    sanitize: function (request, forYield) {
+        if (forYield) {
+            var me = this;
+            return function (cb) {
+                var reqData = _.extend({}, request.body, request.query);
+                cb && cb(null, me.parse(reqData));
+            }
+        } else {
+            var reqData = _.extend({}, request.body, request.query);
+            return this.parse(reqData);
+        }
     }
 });
 
