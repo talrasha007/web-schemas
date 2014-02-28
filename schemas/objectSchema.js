@@ -44,11 +44,11 @@ _.extend(ObjectSchema.prototype, {
             var me = this;
             return function (cb) {
                 var reqData = _.extend({}, request.body, request.query);
-                cb && cb(null, me.parse(reqData));
+                cb && cb(null, me.parse(reqData) || {});
             }
         } else {
             var reqData = _.extend({}, request.body, request.query);
-            return this.parse(reqData);
+            return this.parse(reqData) || {};
         }
     }
 });
