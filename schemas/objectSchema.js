@@ -40,14 +40,14 @@ _.extend(ObjectSchema.prototype, {
     },
 
     sanitize: function (request, forYield) {
+        var reqData = _.extend({}, request.body, request.query, request.params);
+
         if (forYield) {
             var me = this;
             return function (cb) {
-                var reqData = _.extend({}, request.body, request.query);
                 cb && cb(null, me.parse(reqData) || {});
             }
         } else {
-            var reqData = _.extend({}, request.body, request.query);
             return this.parse(reqData) || {};
         }
     }
