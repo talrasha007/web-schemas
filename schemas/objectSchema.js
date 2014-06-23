@@ -73,6 +73,7 @@ var ArraySchema = exports.ArraySchema = function (arr) {
 util.inherits(ArraySchema, cm.SchemaBase);
 _.extend(ArraySchema.prototype, {
     parse: function (arr) {
+        if (!arr) return ;
         if (!_.isArray(arr)) throw new cm.SchemaParseError('should be an array.');
 
         var me = this,
