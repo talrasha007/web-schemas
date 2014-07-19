@@ -87,6 +87,13 @@ _.extend(ArraySchema.prototype, {
         else return ;
     },
 
+    required: function () {
+        return this._sealParser(function (v) {
+            if (v && v.length > 0) return (v);
+            throw new cm.SchemaParseError('required.');
+        });
+    },
+
     len: function (min, max) {
         return this._sealParser(function (v) {
             if (v && v.length >= (min || 0) && (max === undefined || v.length <= max)) return v;
