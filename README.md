@@ -46,11 +46,11 @@ app.all('/foo', function (req, res) {
  - **string**
  - **date**
  - **bool**
- - ObjectSchema: create by **new expressSchema.Schema({ /* blabla */ })**
- - ArraySchema: create by **new expressSchema.Schema({ foo: [/* blabla */] })**
+ - ObjectSchema: create by **new webSchemas.Schema({ /* blabla */ })**
+ - ArraySchema: create by **new webSchemas.Schema({ foo: [/* blabla */] })**
 
-## Chained schema
-  Every schema type have chained methods to add extra validate conditions/sanitize methods.
+## Chaining
+  Every schema type have chaining methods to add extra validate conditions/sanitize methods.
 
 ### Common
  - **default(val)** - if result is undefined, use val instead.
