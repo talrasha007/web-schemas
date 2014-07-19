@@ -31,7 +31,7 @@ var fooSchema = new Schema({
 // koa
 app.use(route.get('/foo', function *() {
     this.body = fooSchema.parse(this.query);
-});
+}));
 
 // express
 app.get('/foo', function (req, res) {
@@ -41,7 +41,7 @@ app.get('/foo', function (req, res) {
     } catch (e) {
         res.jsonp(500, e.path + ': ' + e.message); // Echo what's wrong.
     }
-}));
+});
 ```
 
 ## Schemas
