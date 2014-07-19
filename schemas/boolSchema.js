@@ -9,6 +9,6 @@ var BoolSchema = exports.BoolSchema = function () {
 util.inherits(BoolSchema, cm.SchemaBase);
 _.extend(BoolSchema.prototype, {
     parse: function (str) {
-        return str === 'true';
+        return _.isBoolean(str) ? str : str === 'true';
     }
 });

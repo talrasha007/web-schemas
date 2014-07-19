@@ -9,6 +9,7 @@ var DateSchema = exports.DateSchema = function () {
 util.inherits(DateSchema, cm.ComparableSchema);
 _.extend(DateSchema.prototype, {
     parse: function (str) {
+        if (_.isDate(str)) return str;
         if (str === undefined) return ;
 
         var r = Date.parse(str);
