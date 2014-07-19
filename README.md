@@ -1,4 +1,4 @@
-#express-schema
+#web-schemas
 
   A schema parser for express.js. The goal of this lib is to make express.js's request param parsing easier.
   
