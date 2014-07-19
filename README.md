@@ -48,8 +48,8 @@ app.get('/foo', function (req, res) {
  - **string**
  - **date**
  - **bool**
- - ObjectSchema: create by **new webSchemas.Schema({ /* blabla */ })**
- - ArraySchema: create by **new webSchemas.Schema({ foo: [/* blabla */] })**
+ - ObjectSchema: create by **new WebSchema({ /* blabla */ })**
+ - ArraySchema: create by **new WebSchema({ foo: [/* blabla */] })** or **new WebSchema.Array({ blabal })**
 
 ## Chaining
   Every schema type have chaining methods to add extra validate conditions/sanitize methods.
