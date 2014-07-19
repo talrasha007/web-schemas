@@ -1,6 +1,6 @@
 #web-schemas
 
-  A schema parser for express.js. The goal of this lib is to make express.js's request param parsing easier.
+  A schema parser for web.
   
 ## Installation
 
@@ -28,10 +28,16 @@ var fooSchema = new Schema({
 
 // { foo: '4', bar: { a:[ { val: '6' } ], b: '2014-01-30' } will be parsed as { foo: 4, bar: { a: [ { val: 6 } ], b: Date('2014-01-30') } }
 
-app.all('/foo', function (req, res) {
+// koa
+app.use(route.get('/foo', function *() {
+    this.body = fooSchema.parse(this.query);
+});
+
+// express
+app.get('/foo', function (req, res) {
     try {
-        fooSchema.parse(req.query);
-        res.jsonp(req.data); // If fooSchema.sanitize success, there will be a 'data' field contains sanitized data.
+        var data = fooSchema.parse(req.query);
+        res.jsonp(data); // If fooSchema.sanitize success, there will be a 'data' field contains sanitized data.
     } catch (e) {
         res.jsonp(500, e.path + ': ' + e.message); // Echo what's wrong.
     }
