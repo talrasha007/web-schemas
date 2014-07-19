@@ -1,6 +1,6 @@
 var assert = require('assert'),
     expect = require('expect.js'),
-    schemas = require('../schemas').schemas;
+    schemas = require('../schemas');
 
 describe('DateSchema', function () {
     it('should parse as expected.', function () {

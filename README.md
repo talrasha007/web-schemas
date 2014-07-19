@@ -14,15 +14,13 @@ npm install web-schemas
 // Koa/Express app configuration...
 // blabla...
 
-var webSchemas = require('web-schemas'),
-    schemas = webSchemas.schemas,
-    Schema = webSchemas.Schema;
+var Schema = require('web-schemas'),
 
 var fooSchema = new Schema({
-    foo: schemas.int.gt(3).lt(5).required(), // foo should between 3~5, and not undefined.
+    foo: Schema.int.gt(3).lt(5).required(), // foo should between 3~5, and not undefined.
     bar: {
-        a: [{ val: schemas.string.len(3, 8) }], // val.length should between 3~8.
-        b: { val: schemas.date } // val is a Date object.
+        a: [{ val: Schema.string.len(3, 8) }], // val.length should between 3~8.
+        b: { val: Schema.date } // val is a Date object.
     }
 });
 

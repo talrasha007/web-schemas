@@ -1,8 +1,8 @@
 var assert = require('assert'),
     expect = require('expect.js'),
-    Schema = require('../schemas').Schema,
+    Schema = require('../schemas'),
     ArraySchema = require('../schemas').Array,
-    schemas = require('../schemas').schemas;
+    schemas = require('../schemas');
 
 describe('ObjectSchema', function () {
     describe('#1', function () {

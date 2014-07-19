@@ -7,13 +7,13 @@ var _ = require('underscore'),
     ObjectSchema = require('./objectSchema.js').ObjectSchema,
     ArraySchema = require('./objectSchema.js').ArraySchema;
 
-exports.schemas = {
+var exp = module.exports = ObjectSchema;
+
+_.extend(exp, {
+    Array: ArraySchema,
     int: new IntSchema(),
     number: new NumberSchema(),
     bool: new BoolSchema(),
     string: new StringSchema(),
     date: new DateSchema()
-};
-
-exports.Schema = ObjectSchema;
-exports.Array = ArraySchema;
+});

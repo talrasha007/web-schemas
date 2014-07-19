@@ -1,6 +1,6 @@
 var assert = require('assert'),
     expect = require('expect.js'),
-    schemas = require('../schemas').schemas;
+    schemas = require('../schemas');
 
 describe('StringSchema', function () {
     it('should parse as expected.', function () {
@@ -18,4 +18,3 @@ describe('StringSchema', function () {
         expect(function () { schemas.string.isLowerCase().parse('Acb') }).to.throwError();
     });
 });
-
