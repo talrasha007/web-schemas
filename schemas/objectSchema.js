@@ -22,6 +22,8 @@ var ObjectSchema = exports.ObjectSchema = function (obj) {
 
 util.inherits(ObjectSchema, cm.SchemaBase);
 _.extend(ObjectSchema.prototype, {
+    isObject: true,
+
     parse: function (obj) {
         var ret =
             _.reduce(this.schemas, function (m, schema, field) {
@@ -59,6 +61,8 @@ var ArraySchema = exports.ArraySchema = function (arr) {
 
 util.inherits(ArraySchema, cm.SchemaBase);
 _.extend(ArraySchema.prototype, {
+    isArray: true,
+
     parse: function (arr) {
         if (!arr) return ;
         if (!_.isArray(arr)) throw new cm.SchemaParseError('should be an array.');
@@ -68,6 +72,10 @@ _.extend(ArraySchema.prototype, {
                 if (!me._schema) {
                     m.push(val);
                 } else {
+                    if (me._schema.isObject && _.isString(val)) {
+                        try { val = JSON.parse(val); }
+                        catch (e) {}
+                    }
                     var v = me._schema.parse(val);
                     if (v !== undefined) m.push(v);
                 }
@@ -81,7 +89,7 @@ _.extend(ArraySchema.prototype, {
 
     len: function (min, max) {
         return this._sealParser(function (v) {
-            if (v.length >= (min || 0) && (max === undefined || v.length <= max)) return v;
+            if (v && v.length >= (min || 0) && (max === undefined || v.length <= max)) return v;
             throw new cm.SchemaParseError('array length error.');
         });
     }
