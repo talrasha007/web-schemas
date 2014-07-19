@@ -7,18 +7,18 @@
 ## Installation
 
 ```
-npm install express-schema
+npm install web-schemas
 ```
 
 ## Usage
 
-```javascript
+```js
 // Express app configuration...
 // blabla...
 
-var expressSchema = require('express-schema'),
-    schemas = expressSchema.schemas,
-    Schema = expressSchema.Schema;
+var webSchemas = require('web-schemas'),
+    schemas = webSchemas.schemas,
+    Schema = webSchemas.Schema;
 
 var fooSchema = new Schema({
     foo: schemas.int.gt(3).lt(5).required(), // foo should between 3~5, and not undefined.
@@ -32,7 +32,7 @@ var fooSchema = new Schema({
 
 app.all('/foo', function (req, res) {
     try {
-        fooSchema.sanitize(req);
+        fooSchema.parse(req.query);
         res.jsonp(req.data); // If fooSchema.sanitize success, there will be a 'data' field contains sanitized data.
     } catch (e) {
         res.jsonp(500, e.path + ': ' + e.message); // Echo what's wrong.

@@ -37,19 +37,6 @@ _.extend(ObjectSchema.prototype, {
 
         if (_.isEmpty(ret)) return ;
         else return ret;
-    },
-
-    sanitize: function (request, forYield) {
-        var reqData = _.extend({}, request.body, request.query, request.params);
-
-        if (forYield) {
-            var me = this;
-            return function (cb) {
-                cb && cb(null, me.parse(reqData) || {});
-            }
-        } else {
-            return this.parse(reqData) || {};
-        }
     }
 });
 

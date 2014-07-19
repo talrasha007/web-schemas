@@ -3,21 +3,23 @@
     "version": "0.0.8",
     "author": "Tal Rasha <talrasha007@gmail.com>",
     "keywords": [
+        "koa",
         "express",
         "request",
         "sanitizer",
+        "validator",
         "schema"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/talrasha007/express-schema.git"
+        "url": "https://github.com/talrasha007/web-schemas.git"
     },
     "dependencies": {
-        "underscore": "latest"
+        "underscore": "*"
     },
     "devDependencies": {
-        "mocha": "latest",
-        "expect.js": "latest"
+        "mocha": "*",
+        "expect.js": "*"
     },
     "main": "./schemas/index.js",
     "readmeFilename": "README.md"
