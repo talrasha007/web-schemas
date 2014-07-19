@@ -41,7 +41,7 @@ app.get('/foo', function (req, res) {
     } catch (e) {
         res.jsonp(500, e.path + ': ' + e.message); // Echo what's wrong.
     }
-});
+}));
 ```
 
 ## Schemas
