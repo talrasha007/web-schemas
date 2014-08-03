@@ -18,6 +18,9 @@ _.extend(StringSchema.prototype, {
             throw new cm.SchemaParseError('cannot be empty.');
         });
     },
+    isMacAddress: function () {
+        return this.is(/^([A-Fa-f0-9]{2}[:]){5}[A-Fa-f0-9]{2}$/);
+    },
     isAlpha: function () {
         return this.is(/^[a-zA-Z]+$/);
     },
@@ -94,6 +97,7 @@ _.extend(StringSchema.prototype, {
     },
     isIPv4: function () {
         return this._sealParser(function (v) {
+            if (v === undefined) return ;
             if (/^(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)\.(\d?\d?\d)$/.test(v)) {
                 var parts = str.split('.').sort();
                 if (_.every(parts, function (p) { return p < 255; }) && parts[1] > 0 && parts[3] > 0) return v;

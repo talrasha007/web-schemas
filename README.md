@@ -96,6 +96,7 @@ app.get('/foo', function (req, res) {
  - **isObjectId()** - string is mongo ObjectId.
  - **isEmail()** - string is Email.
  - **isUrl()** - string is URL.
+ - **isMacAddress()** - string is MAC address.
  - **isIPv4()** - string is IPV4.
  - **isIPv6()** - string is IPV6.
  - **toLowerCase()** - convert result to lower case.
