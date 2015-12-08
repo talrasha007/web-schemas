@@ -2,6 +2,7 @@
     "name": "web-schemas",
     "version": "0.1.3",
     "author": "Tal Rasha <talrasha007@gmail.com>",
+    "license": "MIT",
     "keywords": [
         "koa",
         "express",
